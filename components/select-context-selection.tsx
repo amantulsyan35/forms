@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { trpc } from '../utils/trpc';
 import { useAtom } from 'jotai';
 import { youtubeDetailsAtom } from '../atoms/video-atoms';
+import { router } from '../src/server/trpc';
 
 const SelectContextSection = () => {
+  const router = useRouter();
   const [youtubeDetails, setYoutubeDetails] = useAtom(youtubeDetailsAtom);
+  const saveYoutubeVideo = trpc.video.saveVideoDetails.useMutation();
 
-  const saveYoutubeVideo = trpc.useMutation(['saveVideoDetails']);
-
-  const handleGenerate = () => {
-    saveYoutubeVideo.mutate({ youtubeDetails });
+  const handleGenerate = async () => {
+    router.push('/context/22');
+    // await saveYoutubeVideo.mutate({
+    //   youtubeLink: 'https://youtu.be/9kPiq8-i-0M',
+    //   startTime: 15,
+    //   endTime: 30,
+    // });
+    // if (saveYoutubeVideo?.isSuccess) {
+    //   router.push('/context/22');
+    // }
   };
 
   const handleVideoChange = (e: React.ChangeEvent<HTMLInputElement>) => {

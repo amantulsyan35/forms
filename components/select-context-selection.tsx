@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+import { trpc } from '../utils/trpc';
 import { useAtom } from 'jotai';
 import { youtubeDetailsAtom } from '../atoms/video-atoms';
-
-// import axios from 'axios';
-// import { useQuery } from 'react-query';
 
 const SelectContextSection = () => {
   const [youtubeDetails, setYoutubeDetails] = useAtom(youtubeDetailsAtom);
 
+  const saveYoutubeVideo = trpc.useMutation(['saveVideoDetails']);
+
   const handleGenerate = () => {
-    console.log(youtubeDetails);
+    saveYoutubeVideo.mutate({ youtubeDetails });
   };
 
   const handleVideoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,32 +18,6 @@ const SelectContextSection = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
-  // const {
-  //   isLoading,
-  //   isError,
-  //   data: timeStampArray,
-  //   error,
-  //   isFetchedAfterMount,
-  // } = useQuery('timestampArray', () =>
-  //   axios.get(
-  //     ` https://yt.lemnoslife.com/videos?part=chapters&id=${
-  //       youtubeDetails?.youtubeLink.split('https://youtu.be/')[1]
-  //     }`
-  //   )
-  // );
-
-  // if (isLoading) {
-  //   return <span>Loading...</span>;
-  // }
-
-  // if (!isFetchedAfterMount) {
-  //   return <span>Loading...</span>;
-  // }
-
-  // if (isError) {
-  //   console.log(error);
-  // }
 
   return (
     <>

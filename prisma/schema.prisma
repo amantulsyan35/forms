@@ -14,7 +14,7 @@ datasource db {
 model YoutubeVideoDetails {
   id Int @unique @default(autoincrement())
   youtubeLink String
-  youtubeVideoId String
+  youtubeVideoId String?
   updatedAt DateTime @updatedAt
   startTime Int
   endTime Int

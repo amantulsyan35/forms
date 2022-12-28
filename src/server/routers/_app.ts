@@ -1,10 +1,10 @@
 import { router } from '../trpc';
 import { z } from 'zod';
 
-import { helloRouter } from './hello';
+import { videoRouter } from './video';
 
 export const appRouter = router({
-  hello: helloRouter,
+  video: videoRouter,
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;

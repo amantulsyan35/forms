@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import { trpc } from '../../utils/trpc';
 import { GoBackButton } from '../../../components/button';
 import { pageAtom, Page } from '../../../atoms/page-atoms';
 import YoutubeLinkSection from '../../../components/youtube-link-section';
@@ -8,9 +7,6 @@ import SelectContextSection from '../../../components/select-context-selection';
 
 const NewContext = () => {
   const [page, setPage] = useAtom(pageAtom);
-  const helloArg = trpc.hello.hello.useQuery({ text: 'Aman' });
-
-  console.log(helloArg?.data);
 
   const handleBack = () => {
     setPage(Page.youtubeLink);

@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["trpc"]
+  "cSpell.words": ["trpc"],
+  "editor.tokenColorCustomizations": {
+    "[Monochrome Dark]": {
+      "functions": "#eaea68fc",
+      "strings": "#999",
+      "keywords": "#444",
+      "variables": "#fff"
+    }
+  }
 }

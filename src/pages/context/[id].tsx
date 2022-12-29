@@ -1,8 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { trpc } from '../../utils/trpc';
+import { useRouter } from 'next/router';
 import CustomVideoPlayer from '../../../components/custom-video-player';
+import { prisma } from '../../utils/prisma';
 
 const VideoPage = () => {
+  const id = useRouter().query.id as string;
   const [hasWindow, setHasWindow] = useState(false);
+
+  const videoDetails = trpc.video.getVideoDetails.useQuery({
+    id,
+  });
+  console.log(videoDetails?.data);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

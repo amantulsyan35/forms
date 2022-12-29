@@ -6,13 +6,17 @@ export const videoRouter = router({
   getVideoDetails: publicProcedure
     .input(
       z.object({
-        id: z.number(),
+        id: z.string(),
       })
     )
-    .query(({ input }) => {
-      return {
-        videoDetails: 'hi will be querying on the basis of id',
-      };
+    .query(async ({ input }) => {
+      const { id } = input;
+      const data = await prisma.youtubeVideoDetails.findUnique({
+        where: {
+          id,
+        },
+      });
+      return data;
     }),
   saveVideoDetails: publicProcedure
     .input(

@@ -11,13 +11,15 @@ const SelectContextSection = () => {
 
   const handleGenerate = async () => {
     await videoDetails.mutate({
-      youtubeLink: 'https://youtu.be/04DuPc8Izes',
-      startTime: 20,
-      endTime: 30,
+      youtubeLink: youtubeDetails?.youtubeLink,
+      startTime: Number(youtubeDetails?.startTime),
+      endTime: Number(youtubeDetails?.endTime),
     });
-    console.log(videoDetails?.data);
-    router.push(`/context/${videoDetails?.data?.id}`);
   };
+
+  if (videoDetails?.isSuccess) {
+    router.push(`/context/${videoDetails?.data}`);
+  }
 
   const handleVideoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setYoutubeDetails((state) => ({

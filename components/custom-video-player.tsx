@@ -8,10 +8,21 @@ import {
 } from 'react-icons/bs';
 import Slider from '@material-ui/core/Slider';
 import screenfull from 'screenfull';
+import Loading from './loading';
 
-const CustomVideoPlayer = () => {
+interface CustomVideoPlayerProps {
+  videoData: {
+    id: any;
+    endTime: number;
+    startTime: number;
+    updatedAt: Date;
+    youtubeLink: string;
+  };
+}
+
+const CustomVideoPlayer = ({ videoData }: CustomVideoPlayerProps) => {
   const [state, setState] = useState({
-    playing: true,
+    playing: false,
     volume: 0.5,
     played: 0,
     seeking: false,
@@ -31,6 +42,8 @@ const CustomVideoPlayer = () => {
     setState({ ...state, playing: false });
   };
 
+  // console.log(videoData);
+
   // const handleVolumeChange = (e: any, newValue: any) => {
   //   setState({ ...state, volume: newValue });
   // };
@@ -42,21 +55,29 @@ const CustomVideoPlayer = () => {
   const handleToggleFullScreen = () => {
     screenfull.toggle(playerControlRef?.current);
   };
+
+  if (!videoData?.startTime || !videoData?.endTime) {
+    return <Loading />;
+  }
+
   return (
     <div ref={playerControlRef} className='w-full h-full relative'>
       <ReactPlayer
         ref={playerRef}
         width='100%'
         height='100%'
-        url='https://youtu.be/ChfjZV-aA_Y'
-        muted={true}
+        url={videoData?.youtubeLink}
+        muted={false}
         playing={playing}
         volume={volume}
         onProgress={(e) => setSeekPosition(e.playedSeconds)}
         played={played * 100}
         config={{
           youtube: {
-            playerVars: { start: 15, end: 45 },
+            playerVars: {
+              start: videoData?.startTime,
+              end: videoData?.endTime,
+            },
           },
         }}
       />
@@ -71,8 +92,8 @@ const CustomVideoPlayer = () => {
         <div className='mt-auto flex flex-col justify-between items-center p-8'>
           <div className='w-full'>
             <Slider
-              min={15}
-              max={45}
+              min={videoData?.startTime}
+              max={videoData?.endTime}
               value={seekPosition}
               onChange={(_, v) => playerRef.current.seekTo(v)}
             />

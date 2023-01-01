@@ -1,5 +1,6 @@
 import { router, publicProcedure } from '../trpc';
 import { z } from 'zod';
+import { v4 as uuidv4 } from 'uuid';
 import { prisma } from '../../utils/prisma';
 
 export const videoRouter = router({
@@ -27,9 +28,10 @@ export const videoRouter = router({
       })
     )
     .mutation(async ({ input }) => {
-      const data = await prisma.youtubeVideoDetails.create({
-        data: input,
+      const dataBaseId = uuidv4();
+      await prisma.youtubeVideoDetails.create({
+        data: { id: dataBaseId, ...input },
       });
-      return data;
+      return dataBaseId;
     }),
 });

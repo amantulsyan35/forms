@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { trpc } from '../../utils/trpc';
 import { useRouter } from 'next/router';
 import CustomVideoPlayer from '../../../components/custom-video-player';
-import { prisma } from '../../utils/prisma';
 
 const VideoPage = () => {
   const id = useRouter().query.id as string;
@@ -11,7 +10,6 @@ const VideoPage = () => {
   const videoDetails = trpc.video.getVideoDetails.useQuery({
     id,
   });
-  console.log(videoDetails?.data);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -23,7 +21,7 @@ const VideoPage = () => {
     <main>
       <section className=' h-[25rem] flex flex-col items-center justify-center relative bg-[#C2262E] '>
         <div className='h-[30rem] w-[50rem] absolute -bottom-[15rem] bg-slate-50 rounded-md shadow-md flex flex-col items-center justify-center p-4 gap-8'>
-          {hasWindow && <CustomVideoPlayer />}
+          {hasWindow && <CustomVideoPlayer videoData={videoDetails?.data} />}
         </div>
       </section>
     </main>

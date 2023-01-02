@@ -34,4 +34,8 @@ export const videoRouter = router({
       });
       return dataBaseId;
     }),
+  getAllVideos: publicProcedure.query(async () => {
+    const data = await prisma.youtubeVideoDetails.findMany();
+    return data;
+  }),
 });

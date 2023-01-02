@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAtom } from 'jotai';
+import Draggable from 'react-draggable';
 import Loading from '../../../components/loading';
 import { GoBackButton } from '../../../components/button';
 import { pageAtom, Page } from '../../../atoms/page-atoms';
@@ -47,25 +48,27 @@ const NewContext = () => {
 
   if (page === Page.youtubeLink) {
     return (
-      <main>
-        <section className=' h-[25rem] flex flex-col items-center justify-center relative bg-[#C2262E] '>
-          <div className='h-[30rem] w-[50rem] absolute  -bottom-[15rem] bg-slate-50 rounded-md shadow-md flex flex-col items-center justify-center p-4 gap-8'>
+      <main className='relative flex justify-center items-center'>
+        <section className='h-[25rem] w-full overflow-y-scroll flex  gap-4 flex-wrap justify-center p-4 bg-[#C2262E]'></section>
+        <Draggable>
+          <div className='h-[30rem] cursor-pointer w-[50rem] absolute -bottom-[15rem]  bg-slate-50 rounded-md shadow-md flex flex-col items-center justify-center p-4 gap-8'>
             <YoutubeLinkSection />
           </div>
-        </section>
+        </Draggable>
       </main>
     );
   }
 
   if (page === Page.generateContext) {
     return (
-      <main>
-        <section className=' h-[25rem] flex flex-col items-center justify-center relative bg-[#C2262E] '>
-          <div className='h-[30rem] w-[50rem] absolute  -bottom-[15rem] bg-slate-50 rounded-md shadow-md flex flex-col items-center justify-center p-4 gap-8'>
+      <main className='relative flex justify-center items-center'>
+        <section className='h-[25rem] w-full overflow-y-scroll flex gap-4 flex-wrap justify-center p-4 bg-[#C2262E]'></section>
+        <Draggable>
+          <div className='h-[30rem] cursor-pointer w-[50rem] absolute -bottom-[15rem]  bg-slate-50 rounded-md shadow-md flex flex-col items-center justify-center p-4 gap-8'>
             <GoBackButton handleBack={handleBack} />
             <SelectContextSection />
           </div>
-        </section>
+        </Draggable>
       </main>
     );
   }

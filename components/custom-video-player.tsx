@@ -11,13 +11,15 @@ import screenfull from 'screenfull';
 import Loading from './loading';
 
 interface CustomVideoPlayerProps {
-  videoData: {
-    id: any;
-    endTime: number;
-    startTime: number;
-    updatedAt: Date;
-    youtubeLink: string;
-  };
+  videoData:
+    | {
+        id: string;
+        endTime: number;
+        startTime: number;
+        updatedAt: Date;
+        youtubeLink: string;
+      }
+    | any;
 }
 
 const CustomVideoPlayer = ({ videoData }: CustomVideoPlayerProps) => {

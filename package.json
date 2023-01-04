@@ -14,7 +14,7 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@prisma/client": "^4.8.0",
-    "@tanstack/react-query": "^4.20.4",
+    "@tanstack/react-query": "^4.20.9",
     "@trpc/client": "^10.7.0",
     "@trpc/next": "^10.7.0",
     "@trpc/react-query": "^10.7.0",

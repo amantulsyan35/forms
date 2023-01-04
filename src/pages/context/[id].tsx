@@ -7,16 +7,17 @@ const VideoPage = () => {
   const id = useRouter().query.id as string;
   const [hasWindow, setHasWindow] = useState(false);
 
-  const videoDetails = trpc.video.getVideoDetails.useQuery({
-    id,
-  });
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setHasWindow(true);
     }
   }, []);
 
+  const videoDetails = trpc.video.getVideoDetails.useQuery({
+    id,
+  });
+
+  console.log(videoDetails);
   return (
     <main>
       <section className=' h-[25rem] flex flex-col items-center justify-center relative bg-[#C2262E] '>

@@ -11,9 +11,9 @@ module.exports = {
       colors: {
         'controls-background': 'rgba(0, 0, 0, 0.8)',
       },
-      backgroundImage: {
-        landing_bg: "url('../public/context_bg.webp')",
-      },
+      // backgroundImage: {
+      //   landing_bg: "url('../public/context_bg.webp')",
+      // },
       fontFamily: {
         Book: 'Book',
         lora: ['Lora', 'serif'],

@@ -12,7 +12,10 @@ export default function Document() {
           property='og:description'
           content='context is the key to narrative storytelling'
         />
-        <meta property='og:image' content='./context_bg.webp' />
+        <meta
+          property='og:image/gif'
+          content='https://mir-s3-cdn-cf.behance.net/project_modules/disp/31a97258737059.5a07705b4b565.gif'
+        />
       </Head>
       <body>
         <Main />

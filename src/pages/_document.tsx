@@ -7,12 +7,14 @@ export default function Document() {
         <meta property='og:url' content='your url' />
         <meta property='og:type' content='website' />
         <meta property='og:title' content='Context' />
-        <meta name='twitter:card' content='context_bg' />
+        <meta name='twitter:card' content='summary_large_image' />
         <meta
           property='og:description'
           content='context is the key to narrative storytelling'
         />
         <meta property='og:image' content='context_bg' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:image:width' content='1200' />
       </Head>
       <body>
         <Main />

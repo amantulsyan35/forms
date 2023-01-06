@@ -10,9 +10,6 @@ const Home = () => {
       <Link href='/context/new' legacyBehavior>
         <a>
           <AiFillPlayCircle className=' h-[128px] w-[128px] text-[#999] hover:text-[#fff] text-[40px] mt-[-75px]' />
-          {/* <button className='p-4 rounded-md pointer-cursor border-2  text-white hover:bg-black  hover:border-none'>
-            Create Context
-          </button> */}
         </a>
       </Link>
     </main>

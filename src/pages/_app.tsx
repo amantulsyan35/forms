@@ -11,12 +11,6 @@ const queryClient = new QueryClient();
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Head>
-        <meta
-          property='og:image'
-          content='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqjy8ZRHjNBs1EgrDGihwNV03homRyqVVPLQ&usqp=CAU'
-        />
-      </Head>
       <JotaiProvider>
         <Component {...pageProps} />
       </JotaiProvider>

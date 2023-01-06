@@ -12,8 +12,14 @@ export default function Document() {
           content='context is the key to narrative storytelling'
         />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:image' content='context_bg' />
-        <meta property='og:image' content='context_bg' />
+        <meta
+          name='twitter:image'
+          content='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqjy8ZRHjNBs1EgrDGihwNV03homRyqVVPLQ&usqp=CAU'
+        />
+        <meta
+          property='og:image'
+          content='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqjy8ZRHjNBs1EgrDGihwNV03homRyqVVPLQ&usqp=CAU'
+        />
         <meta property='og:image:height' content='630' />
         <meta property='og:image:width' content='1200' />
       </Head>

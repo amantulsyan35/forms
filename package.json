@@ -36,6 +36,7 @@
     "react-video-renderer": "^2.5.1",
     "react-youtube": "^10.1.0",
     "redux": "^4.2.0",
+    "roughjs": "^4.5.2",
     "screenfull": "^6.0.2",
     "uuid": "^9.0.0",
     "video-react": "^0.16.0",

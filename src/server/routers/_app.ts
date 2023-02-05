@@ -1,9 +1,9 @@
 import { router } from '../trpc';
 
-import { videoRouter } from './video';
+import { incorporationCompanyInfoRouter } from './incorporation-company-info';
 
 export const appRouter = router({
-  video: videoRouter,
+  companyInfo: incorporationCompanyInfoRouter,
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;

@@ -8,28 +8,29 @@ interface OptionItem {
 
 interface SelectFieldProps {
   options: OptionItem[];
-  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  value?: string;
-  labelHeading: string;
+  id: string;
+  label: string;
+  error?: string;
+  containerClassname?: string;
+  className: string;
+  inputProps: unknown;
 }
 
-const SelectField = ({
-  options,
-  handleChange,
-  value,
-  labelHeading,
-}: SelectFieldProps) => {
+const SelectField = (props: SelectFieldProps) => {
   return (
-    <label className='w-3/4 flex flex-col gap-[5px] '>
-      <p className='text-left font-lora uppercase text-xs tracking-widest'>
-        {labelHeading}
-      </p>
-      <select
-        onChange={handleChange}
-        // value={value}
-        className='w-full rounded-md p-[10px] shadow-sm'
+    <div className={props.containerClassname ?? 'mb-4'}>
+      <label
+        className='block text-gray-700 text-sm font-bold mb-2'
+        htmlFor={props.id}
       >
-        {options?.map((opt) => {
+        {props.label}
+      </label>
+      <select
+        className={props.className}
+        id={props.id}
+        {...(props.inputProps ?? {})}
+      >
+        {props.options?.map((opt) => {
           return (
             <option key={opt?.id} value={opt.value}>
               {opt?.label}
@@ -37,7 +38,8 @@ const SelectField = ({
           );
         })}
       </select>
-    </label>
+      {props.error ? <span>{props.error}</span> : null}
+    </div>
   );
 };
 

@@ -11,10 +11,15 @@ datasource db {
 }
 
 
-model YoutubeVideoDetails {
-    id   String @id
-  youtubeLink String
-  updatedAt DateTime @updatedAt
-  startTime Int
-  endTime Int
+model Incorporation {
+  id   String  @id @unique
+  entityName String
+  companySuffix String
+  addressLine1 String
+  addressLine2 String
+  postalCode String
+  city String
+  country String
+  state String
 }
+

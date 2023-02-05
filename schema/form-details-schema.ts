@@ -4,7 +4,7 @@ export const FormDetailsSchema = z.object({
   fieldType: z.string(),
   fieldName: z.string(),
   fieldLabel: z.string().optional(),
-  SelectFieldOptions: z.object({}).array().optional(),
+  SelectFieldOptions: z.string(),
 });
 
 export const SelectFormFieldOptionsSchema = z.object({
